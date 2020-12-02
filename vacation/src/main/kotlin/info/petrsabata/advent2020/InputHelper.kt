@@ -3,13 +3,18 @@ package info.petrsabata.advent2020
 import java.io.File
 import java.lang.IllegalArgumentException
 import java.net.URI
-import java.net.URL
 
 class InputHelper(private val resourceFileName: String) {
 
     fun readIntLines(): List<Int> {
+        return readLines {
+            it.toInt()
+        }
+    }
+
+    fun <R> readLines(transform: (String) -> R): List<R> {
         return getFile().useLines {
-            it.map { entry -> entry.toInt() }.toList()
+            it.map(transform).toList()
         }
     }
 
