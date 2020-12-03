@@ -6,6 +6,10 @@ import java.net.URI
 
 class InputHelper(private val resourceFileName: String) {
 
+    fun readLines(): List<String> {
+        return getFile().readLines()
+    }
+
     fun readIntLines(): List<Int> {
         return readLines {
             it.toInt()
