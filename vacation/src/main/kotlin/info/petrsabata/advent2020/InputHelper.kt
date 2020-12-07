@@ -10,6 +10,10 @@ class InputHelper(private val resourceFileName: String) {
         return getFile().readText()
     }
 
+    fun readGroups(): List<String> {
+        return getFile().readText().split(Regex("^\\s*$", RegexOption.MULTILINE))
+    }
+
     fun readLines(): List<String> {
         return getFile().readLines()
     }
